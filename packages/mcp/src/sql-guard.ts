@@ -50,6 +50,11 @@ export function assertLexicallySafe(sql: string): void {
       i = j;
       continue;
     }
+    // Outside quotes only printable ASCII and ordinary whitespace: the parser
+    // treats some Unicode spaces as whitespace and Postgres does not.
+    if (!/[\x20-\x7e\t\n\r]/.test(ch)) {
+      throw new SqlRejected("Only ASCII characters are allowed outside quoted strings. Pass other values as $1 params.");
+    }
     if ((ch === "-" && next === "-") || (ch === "/" && next === "*")) {
       throw new SqlRejected("Comments are not allowed in queries.");
     }
@@ -145,12 +150,30 @@ const ALLOWED_NODE_TYPES: ReadonlySet<string> = new Set([
 ]);
 
 /** Type names a cast must not target: catalog lookups (regclass, ...) and schema-qualified types. */
+/**
+ * Cast targets are an allowlist of plain scalar types. A denylist cannot be
+ * complete: reg* types turn OIDs into catalog names, and every table has a
+ * composite type of the same name that reveals its columns. Arrays of an
+ * allowed type are fine; the element type is what gets checked.
+ */
+export const ALLOWED_CAST_TYPES: ReadonlySet<string> = new Set([
+  "text", "varchar", "character varying", "char", "character", "bpchar", "name",
+  "int", "int2", "int4", "int8", "integer", "smallint", "bigint",
+  "numeric", "decimal", "real", "float", "float4", "float8", "double precision",
+  "bool", "boolean",
+  "date", "time", "timetz", "timestamp", "timestamptz", "interval",
+  "timestamp with time zone", "timestamp without time zone", "time with time zone", "time without time zone",
+  "json", "jsonb", "uuid", "money",
+]);
+
 function assertCastTarget(to: unknown): void {
-  const t = to as { name?: unknown; schema?: unknown } | null;
-  if (!t || typeof t !== "object") return;
-  if (t.schema !== undefined) throw new SqlRejected("Casts to schema-qualified types are not allowed.");
-  const name = typeof t.name === "string" ? t.name.toLowerCase() : "";
-  if (name.startsWith("reg") || name.startsWith("pg_")) throw new SqlRejected(`Casts to ${name} are not allowed.`);
+  let t = to as { kind?: unknown; arrayOf?: unknown; name?: unknown; schema?: unknown } | null;
+  while (t && typeof t === "object" && t.kind === "array") t = t.arrayOf as typeof t;
+  if (!t || typeof t !== "object" || typeof t.name !== "string" || t.schema !== undefined) {
+    throw new SqlRejected("This cast target is not allowed.");
+  }
+  const name = t.name.toLowerCase();
+  if (!ALLOWED_CAST_TYPES.has(name)) throw new SqlRejected(`Casts to ${name} are not allowed.`);
 }
 
 const MAX_AST_DEPTH = 200;
@@ -201,6 +224,8 @@ function walk(node: unknown, out: Collected, isRoot: boolean, depth = 0): void {
       }
     } else if (type === "cast") {
       assertCastTarget(obj.to);
+    } else if ((type === "binary" || type === "unary") && obj.opSchema !== undefined) {
+      throw new SqlRejected("OPERATOR(schema.op) syntax is not allowed.");
     }
   }
 
