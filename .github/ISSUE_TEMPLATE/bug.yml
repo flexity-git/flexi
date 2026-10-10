@@ -1,0 +1,20 @@
+name: Bug report
+description: Something does not work as documented.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you ran, what you expected, what you got. Remove tokens and customer data.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: flexi version or commit
+  - type: textarea
+    id: doctor
+    attributes:
+      label: Output of `npx flexi doctor`
+      render: text

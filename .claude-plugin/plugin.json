@@ -1,0 +1,11 @@
+{
+  "name": "flexi",
+  "version": "0.1.0",
+  "description": "Skills for Shoptet merchants: API work, stuck orders, product feeds, multi-store catalogs, and building your own flexi modules",
+  "author": { "name": "Tomáš Sokol", "url": "https://www.linkedin.com/in/sokoltomas/" },
+  "homepage": "https://github.com/flexity-git/flexi",
+  "repository": "https://github.com/flexity-git/flexi",
+  "license": "Apache-2.0",
+  "keywords": ["shoptet", "e-commerce", "mcp", "claude-code", "skills"],
+  "skills": ["./skills/"]
+}

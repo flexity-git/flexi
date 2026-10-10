@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use flexi in your work or write about it, please cite it like this."
+title: "flexi: open-source back-office and AI system for Shoptet e-shops"
+type: software
+version: 0.1.0
+license: Apache-2.0
+repository-code: "https://github.com/flexity-git/flexi"
+authors:
+  - given-names: "Tomáš"
+    family-names: "Sokol"
+    affiliation: "Flexity s.r.o."
+  - name: "Flexity s.r.o."
+    website: "https://flexity.sk"
+keywords:
+  - shoptet
+  - e-commerce
+  - mcp
+  - claude-code
+  - ai-agents
+  - back-office

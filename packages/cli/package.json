@@ -1,0 +1,25 @@
+{
+  "name": "@flexity/cli",
+  "version": "0.1.0",
+  "description": "The flexi command line: doctor, migrate, list, run.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "bin": {
+    "flexi": "./src/bin.ts"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "typecheck": "tsc -p . --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@flexity/core": "0.1.0",
+    "pg": "^8.23.1"
+  }
+}

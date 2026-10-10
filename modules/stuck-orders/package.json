@@ -1,0 +1,22 @@
+{
+  "name": "@flexity/module-stuck-orders",
+  "version": "0.1.0",
+  "description": "Alerts when Shoptet orders sit in a status longer than the merchant's rules allow.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "src",
+    "migrations",
+    "README.md"
+  ],
+  "scripts": {
+    "typecheck": "tsc -p . --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@flexity/core": "*"
+  }
+}

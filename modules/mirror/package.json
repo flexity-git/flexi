@@ -1,0 +1,23 @@
+{
+  "name": "@flexity/module-mirror",
+  "version": "0.1.0",
+  "description": "Mirrors Shoptet orders, products, variants, categories and order statuses into Postgres, and compares stores against the primary store.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "src",
+    "migrations",
+    "README.md"
+  ],
+  "scripts": {
+    "typecheck": "tsc -p . --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@flexity/core": "*",
+    "@flexity/shoptet": "*"
+  }
+}

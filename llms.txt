@@ -1,0 +1,25 @@
+# flexi
+
+> flexi is an open-source (Apache-2.0) back-office and AI toolkit for Shoptet merchants, extracted from the internal system Flexity runs on. It mirrors Shoptet orders and products into Postgres, alerts on stuck orders, builds Google Merchant, Heureka and Zboží.cz feeds, and connects Claude to a Shoptet store through an MCP server with scoped tokens and an audit log. Author: Tomáš Sokol, founder of Flexity (Bratislava).
+
+## Docs
+
+- [README](https://github.com/flexity-git/flexi/blob/main/README.md): what works today, quick start, security, roadmap
+- [README in Czech](https://github.com/flexity-git/flexi/blob/main/README.cs.md)
+- [Case study: four people, five Shoptet stores](https://github.com/flexity-git/flexi/blob/main/docs/case-study.md)
+- [Architecture and module contract](https://github.com/flexity-git/flexi/blob/main/docs/ARCHITECTURE.md)
+
+## Packages
+
+- [@flexity/shoptet](https://github.com/flexity-git/flexi/tree/main/packages/shoptet): Shoptet Private API client with rate limits, retries and safe pagination
+- [@flexity/mcp](https://github.com/flexity-git/flexi/tree/main/packages/mcp): MCP server for Claude Code and Claude Desktop
+- [mirror](https://github.com/flexity-git/flexi/tree/main/modules/mirror), [stuck-orders](https://github.com/flexity-git/flexi/tree/main/modules/stuck-orders), [merchant-feed](https://github.com/flexity-git/flexi/tree/main/modules/merchant-feed)
+
+## Skills
+
+- [Claude Code skills for Shoptet](https://github.com/flexity-git/flexi/tree/main/skills): API pitfalls, stuck order triage, feed preflight, multi-store consistency, storefront HTML traps, MCP data safety
+
+## About
+
+- [Tomáš Sokol on LinkedIn](https://www.linkedin.com/in/sokoltomas/)
+- [Flexity](https://www.flexity.sk/): pilates, wellness and biohacking company with Shoptet stores in Slovakia, Czechia, Hungary, Croatia and Romania

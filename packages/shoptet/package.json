@@ -1,0 +1,29 @@
+{
+  "name": "@flexity/shoptet",
+  "version": "0.1.0",
+  "description": "Typed Shoptet Private API client with rate limiting, retries, safe pagination and webhook verification.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "keywords": [
+    "shoptet",
+    "e-commerce",
+    "api-client"
+  ],
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "typecheck": "tsc -p . --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "zod": "^3.25.76"
+  }
+}

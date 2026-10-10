@@ -1,0 +1,16 @@
+export { mcpMigrationsDir } from "./migrations.js";
+export { main, parseCliArgs, USAGE } from "./cli.js";
+export { createMcpServer, callTool, visibleTools, INSTRUCTIONS, SERVER_NAME, SERVER_VERSION } from "./server.js";
+export { TOOLS, type Caller, type ServerDeps, type ToolDefinition } from "./tools.js";
+export { buildDeps, stdioCaller, loadCatalog, closeAllPools } from "./runtime.js";
+export { createHttpHandler, startHttpServer } from "./http.js";
+export { buildCatalog, describeCatalog, RESERVED_TABLES, type CatalogTable } from "./catalog.js";
+export { validateSelect, SqlRejected, ALLOWED_FUNCTIONS, MAX_SQL_LENGTH } from "./sql-guard.js";
+export { runReadOnlyQuery, roleFor, type QueryRoles } from "./query.js";
+export { generateRoleSql, DEFAULT_READER_ROLE, DEFAULT_CUSTOMERS_READER_ROLE } from "./roles.js";
+export { ToolError } from "./errors.js";
+export { hasScope, normalizeScopes, parseScopesStrict, KNOWN_SCOPES, WILDCARD, WILDCARD_EXEMPT_SCOPES } from "./scopes.js";
+export { createToken, listTokens, revokeToken, resolveToken, hashToken, generateToken, TOKEN_PREFIX } from "./tokens.js";
+export { createConfirmTokens, ConfirmTokenError, CONFIRM_TTL_MS } from "./confirm.js";
+export { redactArgs, redactText, createDbAuditWriter, createLogAuditWriter, type AuditEntry } from "./audit.js";
+export { PRODUCT_VISIBILITIES } from "./writes.js";

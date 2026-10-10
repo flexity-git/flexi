@@ -1,0 +1,25 @@
+{
+  "name": "flexi",
+  "owner": {
+    "name": "Tomáš Sokol (Flexity)",
+    "email": "info@flexity.sk"
+  },
+  "metadata": {
+    "description": "Claude Code skills and MCP tools for running Shoptet e-shops"
+  },
+  "plugins": [
+    {
+      "name": "flexi",
+      "source": "./",
+      "description": "Skills for Shoptet merchants: API work, stuck orders, product feeds, multi-store catalogs, and building your own flexi modules",
+      "version": "0.1.0",
+      "author": { "name": "Tomáš Sokol", "url": "https://www.linkedin.com/in/sokoltomas/" },
+      "homepage": "https://github.com/flexity-git/flexi",
+      "repository": "https://github.com/flexity-git/flexi",
+      "license": "Apache-2.0",
+      "keywords": ["shoptet", "e-commerce", "mcp", "skills"],
+      "category": "workflow",
+      "strict": false
+    }
+  ]
+}

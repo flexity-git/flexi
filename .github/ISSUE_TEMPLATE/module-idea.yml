@@ -1,0 +1,22 @@
+name: Module or skill idea
+description: Propose a capability other Shoptet merchants would use.
+labels: [idea]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Which problem in your shop does it solve?
+    validations:
+      required: true
+  - type: textarea
+    id: shoptet
+    attributes:
+      label: Which Shoptet API endpoints or other services does it need?
+  - type: dropdown
+    id: build
+    attributes:
+      label: Would you build it?
+      options:
+        - Yes, I will open a pull request
+        - I can help test it
+        - Just an idea

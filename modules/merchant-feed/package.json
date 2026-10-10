@@ -1,0 +1,22 @@
+{
+  "name": "@flexity/module-merchant-feed",
+  "version": "0.1.0",
+  "description": "Google Merchant, Heureka and Zbozi.cz product feeds built from the local Shoptet mirror.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "src",
+    "migrations",
+    "README.md"
+  ],
+  "scripts": {
+    "typecheck": "tsc -p . --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@flexity/core": "*"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "flexi",
+  "private": true,
+  "description": "Open-source back-office and AI operating system for Shoptet e-shops.",
+  "license": "Apache-2.0",
+  "workspaces": [
+    "packages/*",
+    "modules/*"
+  ],
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "flexi": "tsx packages/cli/src/bin.ts",
+    "mcp": "tsx packages/mcp/src/bin.ts",
+    "secrets:scan": "node scripts/secrets-scan.mjs --history"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "@types/pg": "^8.15.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.2",
+    "vitest": "^4.1.10"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "pg": "^8.23.1",
+    "zod": "^3.25.76"
+  }
+}
